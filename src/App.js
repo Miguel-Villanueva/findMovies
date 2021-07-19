@@ -1,11 +1,7 @@
 import { AppBarSearch } from "./Components/AppBarSearch";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
-  QueriesObserver,
 } from "react-query";
 import { SearchResults } from "./Components/SearchResults";
 

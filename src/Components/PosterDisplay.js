@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { metaDataByMovie } from "../api/constants";
 import { ReactComponent as Surprised } from "../assets/surprised.svg";

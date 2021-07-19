@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const AppBarSearch = (props) => {
   const classes = useStyles();
-  const query = props.query;
   const handleChange = props.handleChange;
 
   return (

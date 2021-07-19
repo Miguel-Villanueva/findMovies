@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { findPopularMovies, findQueryMovies } from "../api/constants";
 import { useQuery } from "react-query";
 import { Typography, Box, CircularProgress } from "@material-ui/core";

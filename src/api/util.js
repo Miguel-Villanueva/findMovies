@@ -1,6 +1,5 @@
 // Transforms array size 100 of "/title/tt12676326/" -> array size 8 of "tt12676326"
 import BrokenImageIcon from "@material-ui/icons/BrokenImage";
-import { slice } from "lodash";
 
 //Retrieves top 8 most popular IMDB movie codes
 export const getPopularMovieIDs = (data) =>

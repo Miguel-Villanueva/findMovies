@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Card,
-  CardContent,
-  CardMedia,
+
   Dialog,
   Typography,
 } from "@material-ui/core";
 import { overviewByMovie } from "../api/constants";
 import { useQuery } from "react-query";
-import { Grid, Box, CircularProgress } from "@material-ui/core";
+import { Grid, CircularProgress } from "@material-ui/core";
 import { ReactComponent as Surprised } from "../assets/surprised.svg";
 import { transformOverviewData } from "../api/util";
 import { makeStyles } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
-import { CenterFocusStrong } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   dialogWindow: {
