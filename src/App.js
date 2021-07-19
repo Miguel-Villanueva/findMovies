@@ -61,6 +61,7 @@ export const App = () => {
               movieID={selectedValue}
               open={open}
               onClose={handleClose}
+              styles={{display: 'flex', justifyContent: 'center'}}
             />
           )}
           {/* <MoviesList query={searchTerm} />

@@ -1,22 +1,28 @@
 import React from "react";
 import {
-
+  makeStyles,
   Dialog,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
 import { overviewByMovie } from "../api/constants";
 import { useQuery } from "react-query";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { ReactComponent as Surprised } from "../assets/surprised.svg";
 import { transformOverviewData } from "../api/util";
-import { makeStyles } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
+import { useTheme } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   dialogWindow: {
-    minWidth: "1200px",
+    [theme.breakpoints.up('md')]: {
+      minWidth: '1200px'
+    },
   },
   movieImage: {
+    [theme.breakpoints.up('md')]: {
+      height: '100%',
+    },
     height: "100%",
     width: "100%",
   },
@@ -28,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
+
     marginLeft: "25px",
     marginRight: "25px",
   },
@@ -36,10 +43,12 @@ const useStyles = makeStyles((theme) => ({
 export const MovieDetails = (props) => {
   const classes = useStyles();
   const { onClose, movieID, open } = props;
-
   const { isLoading, error, data } = useQuery(["details", movieID], () =>
     overviewByMovie(movieID)
   );
+  const theme = useTheme();
+  const mediaQuery = useMediaQuery(theme.breakpoints.up('m')) ? 1 : 3;
+  console.log(mediaQuery);
   if (movieID === "") {
     return <div></div>;
   }
@@ -62,23 +71,25 @@ export const MovieDetails = (props) => {
     );
   }
   const movieData = transformOverviewData(data);
-  console.log(movieData);
+
   return (
     <div>
       <Dialog
         className={classes.dialogWindow}
         fullWidth={true}
         maxWidth={"lg"}
+  
         onClose={handleClose}
         open={open}
       >
         <Grid container direction="row">
-          <Grid item xs={3}>
-            <img
-              className={classes.movieImage}
-              src={movieData.image}
-              alt={movieData.title}
-            />
+          <Grid item xs={mediaQuery} style={{margin: '0 auto'}}>
+              <img
+                className={classes.movieImage}
+                src={movieData.image}
+                alt={movieData.title}
+              />
+            
           </Grid>
           <Grid className={classes.movieInfo} item xs={8}>
             <Typography variant="h3">{movieData.title}</Typography>
