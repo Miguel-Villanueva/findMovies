@@ -37,7 +37,7 @@ export const PosterDisplay = (props) => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className='loading'> 
         <CircularProgress />
       </div>
     );

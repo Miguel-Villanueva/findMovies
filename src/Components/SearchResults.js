@@ -5,6 +5,7 @@ import { Typography, Box, CircularProgress } from "@material-ui/core";
 import { ReactComponent as Surprised } from "../assets/surprised.svg";
 import { getQueryMovieIDs, getPopularMovieIDs } from "../api/util";
 import { PosterDisplay } from "./PosterDisplay";
+import './styling.css';
 
 //Searches the user query or the most popular movies
 export const SearchResults = (props) => {
@@ -13,10 +14,10 @@ export const SearchResults = (props) => {
   const { isLoading, error, data } = useQuery(query, () =>
     query === "" ? findPopularMovies() : findQueryMovies(query)
   );
-
+  
   if (isLoading) {
     return (
-      <div>
+      <div className='loading'>
         <CircularProgress />
       </div>
     );

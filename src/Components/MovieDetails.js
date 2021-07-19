@@ -49,7 +49,7 @@ export const MovieDetails = (props) => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className='loading'>
         <CircularProgress />
       </div>
     );
